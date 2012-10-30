@@ -19,7 +19,6 @@
     <SolutionToBuild Include="..\*.sln">
       <Properties>Configuration=Release</Properties>
     </SolutionToBuild>
-    <ConfigFiles Include ="E:\build\config\irobyx.simpledb\amazon.config"></ConfigFiles>
   </ItemGroup>
 
   <Target Name="CopyConfig">
