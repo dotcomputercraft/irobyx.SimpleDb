@@ -3,7 +3,6 @@
 syntax: glob
 # Ignore Visual Studio 2008 files
 *.obj
-*.exe
 # keep pdb in for now: lib files
 # *.pdb
 *.user
