@@ -54,9 +54,6 @@
 
   <Target Name="StyleCop" DependsOnTargets="Build">
 
-    <!--Cop stylecop resources to BuildReports folder-->
-    <Copy DestinationFolder="$(BuildReportDirectory)\StyleCop" SourceFiles="@(StyleCopResources)"></Copy>
-
     <Microsoft.StyleCop.StyleCopTask
       ProjectFullPath="$(MSBuildProjectDirectory)"
       SourceFiles="@(StyleCopFiles)"
@@ -69,14 +66,7 @@
       MaxViolationCount="$(StyleCopMaxViolationCount)">
     </Microsoft.StyleCop.StyleCopTask>
 
-    <MSBuild.ExtensionPack.Xml.XmlTask
-      TaskAction="Transform"
-      XmlFile="StyleCopViolations.xml"
-      XslTransformFile="..\Lib\BuildReports\StyleCop\StyleCop.xslt"
-      OutputFile="$(StyleCopReport)">
-    </MSBuild.ExtensionPack.Xml.XmlTask>
-
-    <Message Text="##teamcity[importData type='nunit' Path='\$(StyleCopReport)']" Condition="'$(TEAMCITY_BUILD_PROPERTIES_FILE)' != ''"></Message>
+    <Message Text="##teamcity[importData type='nunit' Path='\build\$(StyleCopReport)' verbose='true' parseOutOfDate='true']" Importance="true" />
 
   </Target>
 
