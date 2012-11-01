@@ -66,7 +66,7 @@
       MaxViolationCount="$(StyleCopMaxViolationCount)">
     </Microsoft.StyleCop.StyleCopTask>
 
-    <Message Text="##teamcity[importData type='nunit' Path='\build\$(StyleCopReport)' verbose='true' parseOutOfDate='true']" Importance="High" />
+    <Message Text="##teamcity[importData id='StyleCop' file='\build\$(StyleCopReport)']" Condition="'$(TEAMCITY_BUILD_PROPERTIES_FILE)' != ''"></Message>
 
   </Target>
 
