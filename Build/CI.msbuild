@@ -8,7 +8,7 @@
     <BuildReportDirectory>TeamCityBuildReports</BuildReportDirectory>
     <FxCopReport>$(BuildReportDirectory)\fxcop-report.xml</FxCopReport>
     <SyleCopXml>$(BuildReportDirectory)\StyleCopViolations.xml</SyleCopXml>
-    <StyleCopReport>$(TeamCityArtifactDirectory)\StyleCop-report.xml</StyleCopReport>
+    <StyleCopReport>$(BuildReportDirectory)\StyleCop-report.xml</StyleCopReport>
   </PropertyGroup>
 
   <Target Name="MakeDirectories">
