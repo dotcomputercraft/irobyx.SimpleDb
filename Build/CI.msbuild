@@ -8,7 +8,7 @@
     <BuildReportDirectory>TeamCityBuildReports</BuildReportDirectory>
     <FxCopReport>$(BuildReportDirectory)\fxcop-report.xml</FxCopReport>
     <SyleCopXml>$(BuildReportDirectory)\StyleCopViolations.xml</SyleCopXml>
-    <StyleCopReport>$(BuildReportDirectory)\StyleCop\StyleCop-report.xml</StyleCopReport>
+    <StyleCopReport>$(TeamCityArtifactDirectory)\StyleCop-report.xml</StyleCopReport>
   </PropertyGroup>
 
   <Target Name="MakeDirectories">
@@ -54,6 +54,8 @@
 
   <Target Name="StyleCop" DependsOnTargets="Build">
 
+    <Message Text="##teamcity[progressMessage type='Running Source Analysis']"/>
+  
     <Microsoft.StyleCop.StyleCopTask
       ProjectFullPath="$(MSBuildProjectDirectory)"
       SourceFiles="@(StyleCopFiles)"
