@@ -48,3 +48,5 @@ TeamCityBuildReports/
 amazon.config
 #NuGet
 packages/
+#Sonar
+.sonar/
