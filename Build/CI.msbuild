@@ -55,6 +55,7 @@
   <Target Name="StyleCop" DependsOnTargets="Build">
 
     <Message Text="##teamcity[progressMessage type='Running Source Analysis']"/>
+    <Message Text="##teamcity[importData type='nunit' path='\build\$(StyleCopReport)' parseOutOfDate='true' ]" Importance="High"/>
   
     <Microsoft.StyleCop.StyleCopTask
       ProjectFullPath="$(MSBuildProjectDirectory)"
@@ -67,9 +68,7 @@
       OutputFile="$(StyleCopReport)"
       MaxViolationCount="$(StyleCopMaxViolationCount)">
     </Microsoft.StyleCop.StyleCopTask>
-
-    <Message Text="##teamcity[importData type='nunit' path='\build\$(StyleCopReport)' parseOutOfDate='true' ]" Importance="High"/>
-
+    
   </Target>
 
 </Project>
